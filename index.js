@@ -58,7 +58,7 @@ socketIo.on("connection", (socket) => { ///Handle khi có connect từ client t�
       {
         "$group": {
           '_id': "$name",
-          "id": {
+          "id": { 
               "$first": "$_id"
           },
           "category": {
@@ -133,7 +133,7 @@ app.use("/api/user", UsersRouter)
 app.use("/api/asset", AssetRouter)
 app.use("/api/pending", PendingRouter)
 app.use("/api/consumable", ConsumableRouter)
-app.use("/api/notification", NotificationRouter)
+app.use("/api/notification", NotificationRouter) 
 
 
 console.log(process.env.MONGODB_URL);

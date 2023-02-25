@@ -12,6 +12,11 @@ const checkOutDate = async (socketIo) => {
           var inputDate = new Date(asset.outOfDate);
         if(todaysDate.setHours(23,59,59,0) > inputDate.setHours(0,0,0,0) ){
             await Asset.deleteOne({_id:asset._id})
+            await Asset.updateMany({name: asset.name}, {
+                $inc: {
+                    stock: -1
+                }
+            })
             const newConsumable = new Consumable({
                 id: asset._id,
                 seri: asset.seri,

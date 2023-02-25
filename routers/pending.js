@@ -48,19 +48,6 @@ router.delete("/delete/:id/:assetID", async (req,res)=>{
 router.post("/accept/:id/:username", async (req,res)=>{
   
     try {
-         const newConsumable = new consumable({
-           id: req.body.assetID._id,
-           seri: req.body.assetID.seri,
-           purchaseCost: req.body.assetID.purchaseCost,
-           purchaseDate: req.body.assetID.purchaseDate,
-           shoppingPlace: req.body.assetID.shoppingPlace,
-           name: req.body.assetID.name,
-           category: req.body.assetID.category,
-           img: req.body.assetID.img,
-           description: req.body.assetID.description,
-           status: "expired",
-         })
-         await newConsumable.save()
          await Pending.deleteOne({_id:req.params.id})
          await Asset.updateOne({
             _id: req.body.assetID._id

@@ -4,7 +4,7 @@ const CronJob = async(socket) => {
   
     try {
         const job = new cron.CronJob({
-            cronTime: "59 23 * * *", // Chạy Jobs vào 23h30 hằng đêm
+            cronTime: "44 22 * * *", // Chạy Jobs vào 23h30 hằng đêm
             onTick: function() {
                 checkOutDate(socket)
             },
